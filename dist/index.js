@@ -178,7 +178,7 @@ function istanbulCoverage(config) {
         const coverageModel = coverage_model_1.makeCoverageModel(combinedConfig.numberOfEntries, files, coverage, combinedConfig.entrySortMethod);
         sendPRComment(combinedConfig, coverageModel.total);
         const report = generateReport(gitRoot, gitBranch, coverageModel, combinedConfig.reportFileSet);
-        markdown("```\n" + report + "```\n");
+        markdown("\n" + report);
     });
 }
 exports.istanbulCoverage = istanbulCoverage;

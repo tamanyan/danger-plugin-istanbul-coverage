@@ -228,6 +228,6 @@ export function istanbulCoverage(config?: Partial<Config>): Promise<void> {
     sendPRComment(combinedConfig, coverageModel.total)
 
     const report = generateReport(gitRoot, gitBranch, coverageModel, combinedConfig.reportFileSet)
-    markdown("```\n" + report + "```\n")
+    markdown("\n" + report)
   })
 }
