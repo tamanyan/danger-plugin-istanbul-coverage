@@ -131,12 +131,12 @@ File | Line Coverage | Statement Coverage | Function Coverage | Branch Coverage
     coverage.elidedCount === 0
       ? undefined
       : [
-          `Other (${coverage.elidedCount} more)`,
-          formatItem(coverage.elided.lines),
-          formatItem(coverage.elided.statements),
-          formatItem(coverage.elided.functions),
-          formatItem(coverage.elided.branches),
-        ].join(" | ")
+        `Other (${coverage.elidedCount} more)`,
+        formatItem(coverage.elided.lines),
+        formatItem(coverage.elided.statements),
+        formatItem(coverage.elided.functions),
+        formatItem(coverage.elided.branches),
+      ].join(" | ")
 
   const total = [
     "Total",
@@ -228,6 +228,6 @@ export function istanbulCoverage(config?: Partial<Config>): Promise<void> {
     sendPRComment(combinedConfig, coverageModel.total)
 
     const report = generateReport(gitRoot, gitBranch, coverageModel, combinedConfig.reportFileSet)
-    markdown(report)
+    markdown("```\n" + report + "```\n")
   })
 }
